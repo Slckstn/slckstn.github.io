@@ -398,6 +398,21 @@ ul{
 	margin-top: 15px;
 	transition: 0.3s ease;
 }
+.aboutcontent .contact-usbutton{
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: 0.3s ease;
+
+}
+.aboutcontent .contact-usbutton:hover{
+    background-color: #e91e63;
+}
+
 @media screen and (max-width: 768px) {
 	.aboutus-header{
 		padding: 0px 20px;
