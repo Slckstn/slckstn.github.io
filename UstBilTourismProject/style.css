@@ -446,5 +446,30 @@ ul{
 	}
 }
 
+.blogmain {
+    flex: 1;  
+}
 
+.blogmain h1{
+        font-size: 23px;
+        margin-bottom: 15px;
+        color: #333;
+}
+.blogmain h3{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.blogmain p{
+    display: inline-block;
+    padding: 10px 20px;
+    color: fff;
+    font-size:  19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
 
