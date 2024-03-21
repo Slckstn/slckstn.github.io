@@ -419,7 +419,16 @@ ul{
 		padding: 0px;
 		font-size: 16px;
 	}
-
+	.about-content .contact-usbutton{
+		font-size: 16px;
+		padding: 10px 20px;
+    	background-color: #e91e63;
+    	border: none;
+    	color: white;
+    	border-radius: 4px;
+    	font-size: 1rem;
+    	cursor: pointer;
+	}
 }
 
 
