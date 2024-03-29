@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Game</title>
+<style>
+    #button {
+        position: absolute;
+        width: 100px;
+        height: 50px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div id="button">Click Me</div>
+
+<script>
+let clicks = 0;
+let level = 1;
+let intervalID;
+const movementSpeed = 5000; // Adjust this value to change movement speed
+
+function moveButton() {
+    const button = document.getElementById("button");
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const newMarginTop = Math.random() * (windowHeight - 50) + "px";
+    const newMarginLeft = Math.random() * (windowWidth - 100) + "px";
+    button.style.marginTop = newMarginTop;
+    button.style.marginLeft = newMarginLeft;
+}
+
+function handleClick() {
+    clicks++;
+    if (clicks === 3) {
+        clearInterval(intervalID); // Stop the random movement
+        alert("You won level " + level);
+        level++;
+        clicks = 0;
+        if (level <= 6) {
+            setTimeout(() => {
+                moveButton();
+                intervalID = setInterval(moveButton, movementSpeed);
+            }, 500);
+        } else {
+            alert("You have completed all levels!");
+        }
+    }
+}
+
+document.getElementById("button").addEventListener("mouseover", () => {
+    clearInterval(intervalID);
+});
+
+document.getElementById("button").addEventListener("mouseout", () => {
+    intervalID = setInterval(moveButton, movementSpeed);
+});
+
+document.getElementById("button").addEventListener("click", () => {
+    handleClick();
+});
+
+intervalID = setInterval(moveButton, movementSpeed);
+
+</script>
+
+</body>
+</html>
