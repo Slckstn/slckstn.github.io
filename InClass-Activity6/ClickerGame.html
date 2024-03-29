@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catch the Button!</title>
-    <style>
-        #button {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: blue;
-            color: white;
-            text-align: center;
-            line-height: 50px;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Game</title>
+<style>
+    #button {
+        position: absolute;
+        width: 100px;
+        height: 50px;
+        background-color: blue;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
-    <h1>Level: <span id="level">1</span></h1>
-    <button id="button">Click Me (3 times to win!)</button>
-    <script>
-        const button = document.getElementById('button');
-        const levelSpan = document.getElementById('level');
 
-        let level = 1;
-        let clicks = 0;
-        let timeoutId;
+<div id="button">Click Me</div>
 
-        function getRandomPosition() {
-            const maxWidth = window.innerWidth - button.clientWidth;
-            const maxHeight = window.innerHeight - button.clientHeight;
-            const randomX = Math.floor(Math.random() * maxWidth);
-            const randomY = Math.floor(Math.random() * maxHeight);
-            return `top: ${randomY}px; left: ${randomX}px;`;
+<script>
+let clicks = 0;
+let level = 1;
+let timeout = 800; // Increased timeout for slower movement
+
+function moveButton() {
+    const button = document.getElementById("button");
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const newMarginTop = Math.random() * (windowHeight - 50);
+    const newMarginLeft = Math.random() * (windowWidth - 100);
+    button.style.marginTop = newMarginTop + "px";
+    button.style.marginLeft = newMarginLeft + "px";
+}
+
+function handleClick() {
+    clicks++;
+    if (clicks === 3) {
+        alert("You won level " + level);
+        level++;
+        clicks = 0;
+        timeout -= 100;
+        if (level <= 6) {
+            setTimeout(() => {
+                moveButton();
+                handleClick();
+            }, timeout);
+        } else {
+            alert("You have completed all levels!");
         }
+    }
+}
 
-        function moveButton() {
-            button.style.cssText = getRandomPosition();
-            clicks = 0; // Reset clicks on button move
-        }
+document.getElementById("button").addEventListener("mouseover", () => {
+    moveButton();
+});
 
-        function startLevel() {
-            timeoutId = setTimeout(moveButton, Math.max(0, 500 - (level - 1) * 100));
-        }
+document.getElementById("button").addEventListener("click", () => {
+    handleClick();
+});
 
-        button.addEventListener('click', () => {
-            clicks++;
-            if (clicks === 3) {
-                clearTimeout(timeoutId);
-                level++;
-                levelSpan.textContent = level;
-                startLevel();
-            }
-        });
+</script>
 
-        startLevel();
-    </script>
 </body>
 </html>
