@@ -2,6 +2,12 @@ $(document).ready(function() {
   $("#birthday").datepicker();
 });
 
+$(document).ready(function() {
+  var langs = ["ActionScript", "AppleScript", "Asp", "JavaScript", "Lisp", 
+                                                  "Perl", "Python", "C++"];
+  $("#proglang").autocomplete({source: langs}); 
+});
+
 const form = document.querySelector('form');
 const inputs = document.querySelectorAll('.form-input');
 
@@ -22,7 +28,6 @@ form.addEventListener('submit', function(event) {
     if (hasError) {
         alert('Lütfen tüm alanları doldurun!');
     } else {
-        // Formu gönder
-        // ...
+        
     }
 });

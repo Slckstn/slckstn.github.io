@@ -12,9 +12,8 @@ form {
   label {
     /* Display the labels inline-block to have them on the same line as the inputs */
     display: inline-block;
-    /* Set some margin on the right side of the labels */
+
     margin-right: 10px;
-    /* Make the labels bold */
     font-weight: bold;
   }
   
@@ -23,27 +22,18 @@ form {
   input[type="email"],
   input[type="url"],
   input[type="date"] {
-    /* Increase the width of the input fields */
     width: 100%;
-    /* Add some padding to the input fields */
     padding: 10px;
-    /* Set a border for the input fields */
     border: 1px solid #ccc;
   }
   
   /* Style the submit button */
   input[type="submit"] {
-    /* Set some background color for the button */
     background-color: red;
-    /* Set a border color for the button */
     border: none;
-    /* Set a color for the text on the button */
     color: white;
-    /* Add some padding for the button */
     padding: 10px 20px;
-    /* Add a cursor pointer to indicate it's a button */
     cursor: pointer;
-    /* Add a border radius to make the button look rounded */
     border-radius: 5px;
   }
   
