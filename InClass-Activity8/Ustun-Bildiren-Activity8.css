@@ -47,3 +47,12 @@ form {
     border-radius: 5px;
   }
   
+  .form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.error {
+    border: 2px solid red;
+}
