@@ -2,103 +2,65 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Reservation request</title>
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-	<script src="reservation.js"></script>
-	<style>
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 87.5%;
-			background-color: white;
-			margin: 0 auto;
-			width: 600px;
-			border: 3px solid blue;
-			padding: 10px 20px;
-		}
-		.ui-tabs .ui-tabs-panel {
-			padding: 0;
-		}
-	</style>
+	<title>Accordion</title>
+    <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+	<link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="accordion.js"></script>
 </head>
 	
 <body>
 	<main>
-		<h1>Reservation Request</h1>
-		<div id="tabs">
-			<ul>
-				<li><a href="#general">General Information</a></li>
-				<li><a href="#preferences">Preferences</a></li>
-				<li><a href="#contact">Contact Information</a></li>
-			</ul>
-			<div id="general">
-				<label for="arrival_date">Arrival date:</label>
-				<input type="text" name="arrival_date" id="arrival_date" autofocus>
-				<span>*</span><br>
-				<label for="nights">Nights:</label>
-				<input type="text" name="nights" id="nights">
-				<span>*</span><br>
-				<label>Adults:</label>
-				<select name="adults" id="adults">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>        		        		        		
-				</select><br>
-				<label>Children:</label>
-				<select name="children" id="children">
-					<option value="0">0</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>        		        		        		
-				</select><br>
-			</div>
-			<div id="preferences">
-				<label>Room type:</label>
-				<input type="radio" name="room" id="standard" class="left" checked>Standard&nbsp;&nbsp;&nbsp;	        	
-				<input type="radio" name="room" id="business" class="left">Business&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="room" id="suite" class="left last">Suite<br>
-				<label>Bed type:</label>
-				<input type="radio" name="bed" id="king" class="left" checked>King&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="bed" id="double" class="left last">Double Double<br>
-				<input type="checkbox" name="smoking" id="smoking">Smoking<br>
-			</div>
-			<div id="contact">
-				<label for="name">Name:</label>
-				<input type="text" name="name" id="name">
-				<span>*</span><br>
-				<label for="email">Email:</label>
-				<input type="text" name="email" id="email">
-				<span>*</span><br>
-				<label for="phone">Phone:</label>
-				<input type="text" name="phone" id="phone" placeholder="999-999-9999">
-				<span>*</span><br>
-			</div>
-		</div>
-		<input type="button" id="policies" value="View Cancellation Policies">
-		<input type="submit" id="submit" value="Submit Request">
-		<div id="dialog" title="Cancellation Policies" style="display: none;">
-			<p>Notification of cancellation or arrival date change must be received more than three days (72 hours) prior to the confirmed arrival date for the reservation deposit to be refundable. Email notification is acceptable, and a cancellation confirmation will be sent to you. Failure to check-in on the scheduled arrival date will result in the cancellation of the reservation including any remaining nights, and the reservation deposit shall be forfeited.</p>
-		</div><br>
-	</main>
+		<h1>Murach's HTML5 and CSS3 (3rd Edition)</h1>
+        <!-- Accordion HTML code -->
+        <div id="accordion">a
+            <h3><a href="#accordion-1">Book description</a></h3>
+            <div id="accordion-1">
+                <p>With this book, you can teach yourself how to design web pages the way the 
+                professionals do, by using HTML and CSS in tandem to structure and format the 
+                page content. It begins with a crash course that teaches you more about HTML 
+                and CSS than you can learn from most full books. That includes a chapter on 
+                Responsive Web Design that shows you how to build responsive websites that will 
+                look and work right on all devices, from phones to tablets to desktop computers.</p>
+                <p>After that, this book shows you how to enhance your web pages with features 
+                like images, forms with built-in data validation, and audio and video clips. 
+                You'll also learn how to use JavaScript and jQuery to add features like image 
+                rollovers, image swaps, and slide shows. You'll learn how to use jQuery UI and 
+                jQuery plugins to add features like accordions, tabs, carousels, and slide shows. 
+                And you'll learn how to use jQuery Mobile to develop separate websites for mobile 
+                devices.</p>
+            </div>
+            <h3><a href="#accordion-2">About the authors</a></h3>
+            <div id="accordion-2">
+                <p><strong>Anne Boehm</strong> has over 30 years of experience as an enterprise programmer. She got 
+                started with Visual Basic in the days of VB5 and has been programming on .NET since 
+                its inception. She added C# to her programming repertoire in the mid-2000s, and she's 
+                authored or co-authored our books on Visual Basic, C#, ADO.NET, ASP.NET, and HTML5/CSS3</p>
+				<p><strong>Zak Ruvalcaba</strong> has been researching, designing, and developing for the web since 
+				1995. His skill set ranges from HTML5/CSS3 and JavaScript/jQuery to .NET with VB 
+				and C#, and he's created web applications for companies like HP, Toshiba, IBM, 
+				Gateway, Intuit, Peachtree, Dell, and Microsoft. He has authored or co-authored our 
+				books on HTML5/CSS3, jQuery, and Dreamweaver CC.</p>
+            </div>
+            <h3><a href="#accordion-3">Who this book is for</a></h3>
+            <div id="accordion-3">
+                <p>This book is for anyone who wants to develop web pages at a thoroughly professional 
+                level. That includes:</p>
+				<ul>
+					<li>budding web developers</li> 
+					<li>web developers who haven't yet updated their websites to HTML5 and CSS3</li>
+					<li>web developers who need to expand and enhance their skillsets</li>
+				</ul>
+            </div>
+        </div>
+        <!-- End Accordion HTML code -->
+    </main>
 	<footer>
 		<br/>
 		<a href="https://validator.w3.org/check?uri=referer">Validate HTML</a> 
 		<a href="https://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
-	</footer>
-	<script>
-		$(document).ready(function() {
-			$("#tabs").tabs();
-			$("#arrival_date").datepicker({
-				minDate: 0,
-				maxDate: "+90d"
-			});
-			$("#policies").click(function() {
-				$("#dialog").dialog();
-			});
-		});
-	</script>
+	</footer>	
+	
 </body>
 </html>
