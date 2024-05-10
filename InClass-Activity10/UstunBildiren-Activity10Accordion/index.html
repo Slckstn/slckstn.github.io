@@ -5,7 +5,7 @@
 	<title>Accordion</title>
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
 	<link rel="stylesheet" href="main.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <script src="accordion.js"></script>
 </head>
@@ -13,14 +13,10 @@
 <body>
 	<main>
 		<h1>Murach's HTML5 and CSS3 (3rd Edition)</h1>
-        <!-- Tabs HTML code -->
-        <div id="tabs">
-            <ul>
-                <li><a href="#tabs-1">Book description</a></li>
-                <li><a href="#tabs-2">About the authors</a></li>
-                <li><a href="#tabs-3">Who this book is for</a></li>
-            </ul>
-            <div id="tabs-1">
+        <!-- Accordion HTML code -->
+        <div id="accordion">
+            <h3><a href="#accordion-1">Book description</a></h3>
+            <div id="accordion-1">
                 <p>With this book, you can teach yourself how to design web pages the way the 
                 professionals do, by using HTML and CSS in tandem to structure and format the 
                 page content. It begins with a crash course that teaches you more about HTML 
@@ -35,7 +31,8 @@
                 And you'll learn how to use jQuery Mobile to develop separate websites for mobile 
                 devices.</p>
             </div>
-            <div id="tabs-2">
+            <h3><a href="#accordion-2">About the authors</a></h3>
+            <div id="accordion-2">
                 <p><strong>Anne Boehm</strong> has over 30 years of experience as an enterprise programmer. She got 
                 started with Visual Basic in the days of VB5 and has been programming on .NET since 
                 its inception. She added C# to her programming repertoire in the mid-2000s, and she's 
@@ -46,7 +43,8 @@
 				Gateway, Intuit, Peachtree, Dell, and Microsoft. He has authored or co-authored our 
 				books on HTML5/CSS3, jQuery, and Dreamweaver CC.</p>
             </div>
-            <div id="tabs-3">
+            <h3><a href="#accordion-3">Who this book is for</a></h3>
+            <div id="accordion-3">
                 <p>This book is for anyone who wants to develop web pages at a thoroughly professional 
                 level. That includes:</p>
 				<ul>
@@ -56,7 +54,7 @@
 				</ul>
             </div>
         </div>
-        <!-- End Tabs HTML code -->
+        <!-- End Accordion HTML code -->
     </main>
 	<footer>
 		<br/>

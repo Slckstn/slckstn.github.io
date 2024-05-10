@@ -1,3 +1,7 @@
-		$(document).ready(function() {
-			$("#tabs").tabs();
-		});
+$(document).ready(function() {
+    $("#accordion").accordion({
+        heightStyle: "content",
+        collapsible: true,
+        active: false
+    });
+});
