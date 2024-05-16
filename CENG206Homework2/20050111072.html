@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>206 - Homework-2</title>
+</head>
+<body>
+
+    <div id="info" class="large-text">
+        <p id="name">Selçuk</p>
+        <p id="surname">Üstün</p>
+        <p id="student-id">Student ID: 20050111072</p>
+        <p id="age">Age: 23</p>
+    </div>
+
+    <input type="file" id="fileInput">
+    <button id="changeColorBtn">Change Color</button>
+
+    <div>
+        <img id="image1" src="aybu.png" alt="Image 1">
+        <img id="image2" src="bestteacherever.jpg" alt="Image 2" class="hidden">
+        <button id="changePictureBtn">Change Picture</button>
+    </div>
+
+    <div>
+        <form id="rectangleForm">
+            <label for="length">Length: </label>
+            <input type="text" id="length" name="length">
+            <label for="width">Width: </label>
+            <input type="text" id="width" name="width">
+            <button type="submit">Calculate Area</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const changeColorBtn = document.getElementById('changeColorBtn');
+        const textElements = document.querySelectorAll('.large-text p');
+        let colors = [];
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                colors = e.target.result.split('\n').map(color => color.trim());
+            };
+            reader.readAsText(file);
+        });
+
+        changeColorBtn.addEventListener('click', () => {
+            if (colors.length > 0) {
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                textElements.forEach(el => el.style.color = randomColor);
+            }
+        });
+        const image1 = document.getElementById('image1');
+        const image2 = document.getElementById('image2');
+        const changePictureBtn = document.getElementById('changePictureBtn');
+
+        changePictureBtn.addEventListener('click', () => {
+            if (image1.classList.contains('hidden')) {
+                image1.classList.remove('hidden');
+                image2.classList.add('hidden');
+            } else {
+                image1.classList.add('hidden');
+                image2.classList.remove('hidden');
+            }
+        });
+
+        const rectangleForm = document.getElementById('rectangleForm');
+        const result = document.getElementById('result');
+
+        rectangleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+
+            if (isNaN(length) || isNaN(width)) {
+                result.textContent = 'Please enter valid numeric values for length and width.';
+            } else {
+                const area = length * width;
+                result.textContent = `The area of the rectangle is: ${area}`;
+            }
+        });
+    </script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .large-text {
+            font-size: 28px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        img {
+            width: 300px;
+            margin: 10px 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            margin-right: 10px;
+        }
+
+        form input {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        form button {
+            padding: 5px 10px;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+
+</body>
+</html>
