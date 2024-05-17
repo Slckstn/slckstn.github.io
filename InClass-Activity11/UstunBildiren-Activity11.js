@@ -13,10 +13,10 @@ $(document).ready(function() {
             
             // Build the new content using the data from the JSON file
             const newContent = `
-                <h1>${data.title}</h1>
-                <img src="/${data.image}" alt="${data.speaker}">
-                <h2>${data.month}<br>${data.speaker}</h2>
-                <p>${data.text}</p>
+                <h1>${data.speakers[0].title}</h1>
+                <img src="/${data.speakers[0].image}" alt="${data.speakers[0].speaker}">
+                <h2>${data.speakers[0].month}<br>${data.speakers[0].speaker}</h2>
+                <p>${data.speakers[0].text}</p>
             `;
 
             // Append the new content to the main element
