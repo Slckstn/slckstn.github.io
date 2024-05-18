@@ -7,31 +7,33 @@
 </head>
 <body>
 
-    <div id="info" class="large-text">
-        <p id="name">Selçuk</p>
-        <p id="surname">Üstün</p>
-        <p id="student-id">Student ID: 20050111072</p>
-        <p id="age">Age: 23</p>
-    </div>
+    <div class="container">
+        <div id="info" class="large-text">
+            <p id="name">Selçuk</p>
+            <p id="surname">Üstün</p>
+            <p id="student-id">Student ID: 20050111072</p>
+            <p id="age">Age: 23</p>
+        </div>
 
-    <input type="file" id="fileInput">
-    <button id="changeColorBtn">Change Color</button>
+        <input type="file" id="fileInput">
+        <button id="changeColorBtn">Change Color</button>
 
-    <div>
-        <img id="image1" src="aybu.png" alt="Image 1">
-        <img id="image2" src="bestteacherever.jpg" alt="Image 2" class="hidden">
-        <button id="changePictureBtn">Change Picture</button>
-    </div>
+        <div>
+            <img id="image1" src="aybu.png" alt="Image 1">
+            <img id="image2" src="bestteacherever.jpg" alt="Image 2" class="hidden">
+            <button id="changePictureBtn">Change Picture</button>
+        </div>
 
-    <div>
-        <form id="rectangleForm">
-            <label for="length">Length: </label>
-            <input type="text" id="length" name="length">
-            <label for="width">Width: </label>
-            <input type="text" id="width" name="width">
-            <button type="submit">Calculate Area</button>
-        </form>
-        <p id="result"></p>
+        <div>
+            <form id="rectangleForm">
+                <label for="length">Length: </label>
+                <input type="text" id="length" name="length">
+                <label for="width">Width: </label>
+                <input type="text" id="width" name="width">
+                <button type="submit">Calculate Area</button>
+            </form>
+            <p id="result"></p>
+        </div>
     </div>
 
     <script>
@@ -55,6 +57,7 @@
                 textElements.forEach(el => el.style.color = randomColor);
             }
         });
+
         const image1 = document.getElementById('image1');
         const image2 = document.getElementById('image2');
         const changePictureBtn = document.getElementById('changePictureBtn');
@@ -85,11 +88,19 @@
             }
         });
     </script>
-    
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
         }
 
         .large-text {
@@ -134,6 +145,5 @@
             color: #333;
         }
     </style>
-
 </body>
 </html>
