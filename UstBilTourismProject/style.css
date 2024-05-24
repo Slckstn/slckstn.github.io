@@ -136,7 +136,6 @@ ul{
 	background-color: #ffffff;
 }
 
-/responsive/
 @media(max-width: 767px){
   .footer-col{
     width: 50%;
@@ -588,20 +587,19 @@ ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 40px; /* Aradaki boşluk */
+    margin-bottom: 40px;
 }
 
 .tour-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-bottom: 40px; /* Aradaki boşluk */
+    margin-bottom: 40px;
 }
 
-/* Tour item styles */
 .tour-item {
-    flex: 0 0 30%; /* Her bir kutu genişliği */
-    margin: 10px;  /* Kutular arası boşluk */
+    flex: 0 0 30%;
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
@@ -609,22 +607,22 @@ ul{
 }
 
 .tour-item img {
-    width: 100%;  /* Resmi kutunun genişliğine yay */
-    height: auto; /* Yükseklik otomatik */
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
 .tour-details {
-    padding: 10px; /* İçerik boşluğu */
-    text-align: center; /* İçeriği ortala */
+    padding: 10px;
+    text-align: center;
 }
 
 .tour-details h2 {
-    margin-bottom: 5px; /* Başlık altı boşluk */
+    margin-bottom: 5px;
 }
 
 .tour-details h3 {
-    font-size: 14px; /* Daha küçük yazı boyutu */
-    color: #666;     /* Daha açık bir renk */
-    margin: 5px 0;   /* Üst ve alt boşluk */
+    font-size: 14px;
+    color: #666; 
+    margin: 5px 0; 
 }
