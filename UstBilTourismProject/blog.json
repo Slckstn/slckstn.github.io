@@ -1,0 +1,16 @@
+{
+    "routes": [
+        {
+            "city": "Mersin",
+            "description": "Mersin is a large city on the southern coast of Turkey."
+        },
+        {
+            "city": "Antalya",
+            "description": "Antalya is a Turkish resort city with a yacht-filled Old Harbor and beaches flanked by large hotels."
+        },
+        {
+            "city": "Muğla",
+            "description": "Muğla is a city in southwestern Turkey, the center of the eponymous province."
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "tours": [
+        {
+            "city": "Mersin",
+            "month": "June",
+            "details": "Mersin city tour with historical sites and beach visits."
+        },
+        {
+            "city": "Mersin",
+            "month": "July",
+            "details": "Mersin city tour with boat trips and local cuisine tasting."
+        },
+        {
+            "city": "Mersin",
+            "month": "August",
+            "details": "Mersin city tour with cultural events and shopping."
+        },
+        {
+            "city": "Antalya",
+            "month": "June",
+            "details": "Antalya city tour with ancient ruins and waterfall visits."
+        },
+        {
+            "city": "Antalya",
+            "month": "July",
+            "details": "Antalya city tour with yacht trips and beach parties."
+        },
+        {
+            "city": "Antalya",
+            "month": "August",
+            "details": "Antalya city tour with historical museums and shopping."
+        },
+        {
+            "city": "Muğla",
+            "month": "June",
+            "details": "Muğla city tour with coastal villages and beach visits."
+        },
+        {
+            "city": "Muğla",
+            "month": "July",
+            "details": "Muğla city tour with boat tours and local markets."
+        },
+        {
+            "city": "Muğla",
+            "month": "August",
+            "details": "Muğla city tour with beach parties and cultural events."
+        }
+    ]
+}
