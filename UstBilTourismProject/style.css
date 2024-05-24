@@ -572,27 +572,6 @@ ul{
     background-color: #ff6f9d;
 }
 
-/* New styles for tour items */
-.tour-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.tour-item img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-}
-
-.tour-details {
-    padding: 20px;
-    flex: 1;
-}
-
 .mersin .tour-details {
     order: 2;
 }
@@ -603,4 +582,49 @@ ul{
 
 .mugla .tour-details {
     order: 2;
+}
+
+.tour-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px; /* Aradaki boşluk */
+}
+
+.tour-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px; /* Aradaki boşluk */
+}
+
+/* Tour item styles */
+.tour-item {
+    flex: 0 0 30%; /* Her bir kutu genişliği */
+    margin: 10px;  /* Kutular arası boşluk */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tour-item img {
+    width: 100%;  /* Resmi kutunun genişliğine yay */
+    height: auto; /* Yükseklik otomatik */
+    object-fit: cover;
+}
+
+.tour-details {
+    padding: 10px; /* İçerik boşluğu */
+    text-align: center; /* İçeriği ortala */
+}
+
+.tour-details h2 {
+    margin-bottom: 5px; /* Başlık altı boşluk */
+}
+
+.tour-details h3 {
+    font-size: 14px; /* Daha küçük yazı boyutu */
+    color: #666;     /* Daha açık bir renk */
+    margin: 5px 0;   /* Üst ve alt boşluk */
 }

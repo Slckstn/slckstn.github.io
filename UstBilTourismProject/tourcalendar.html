@@ -83,31 +83,61 @@
                     var mersinIndex = 0;
                     var antalyaIndex = 0;
                     var muglaIndex = 0;
+                    var mersinHTML = '<div class="tour-container">';
+                    var antalyaHTML = '<div class="tour-container">';
+                    var muglaHTML = '<div class="tour-container">';
                     
                     data.tours.forEach(function(tour) {
                         var imgSrc = "";
                         if(tour.city.includes("Mersin")) {
                             imgSrc = `image/mersin${mersinIndex ? '-' + mersinIndex : ''}.jpg`;
                             mersinIndex++;
+                            mersinHTML += `
+                                <div class="tour-item ${tour.city.toLowerCase().replace(/ /g, '')}">
+                                    <img src="${imgSrc}" alt="${tour.city}">
+                                    <div class="tour-details">
+                                        <h2>${tour.city}</h2>
+                                        <h3>${tour.month}</h3>
+                                        <p>${tour.details}</p>
+                                    </div>
+                                </div>
+                            `;
                         } else if(tour.city.includes("Antalya")) {
                             imgSrc = `image/antalya${antalyaIndex ? '-' + antalyaIndex : ''}.jpg`;
                             antalyaIndex++;
+                            antalyaHTML += `
+                                <div class="tour-item ${tour.city.toLowerCase().replace(/ /g, '')}">
+                                    <img src="${imgSrc}" alt="${tour.city}">
+                                    <div class="tour-details">
+                                        <h2>${tour.city}</h2>
+                                        <h3>${tour.month}</h3>
+                                        <p>${tour.details}</p>
+                                    </div>
+                                </div>
+                            `;
                         } else if(tour.city.includes("Muğla")) {
                             imgSrc = `image/mugla${muglaIndex ? '-' + muglaIndex : ''}.jpg`;
                             muglaIndex++;
-                        }
-                        
-                        var content = `
-                            <div class="tour-item ${tour.city.toLowerCase().replace(/ /g, '')}">
-                                <img src="${imgSrc}" alt="${tour.city}">
-                                <div class="tour-details">
-                                    <h2>${tour.city} - ${tour.month}</h2>
-                                    <p>${tour.details}</p>
+                            muglaHTML += `
+                                <div class="tour-item ${tour.city.toLowerCase().replace(/ /g, '')}">
+                                    <img src="${imgSrc}" alt="${tour.city}">
+                                    <div class="tour-details">
+                                        <h2>${tour.city}</h2>
+                                        <h3>${tour.month}</h3>
+                                        <p>${tour.details}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        `;
-                        container.append(content);
+                            `;
+                        }
                     });
+
+                    mersinHTML += '</div>';
+                    antalyaHTML += '</div>';
+                    muglaHTML += '</div>';
+                    
+                    container.append(mersinHTML);
+                    container.append(antalyaHTML);
+                    container.append(muglaHTML);
                 },
                 error: function(error) {
                     console.log("Error fetching data: ", error);
