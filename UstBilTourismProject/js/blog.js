@@ -1,61 +1,44 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // JSON dosyasından veri çekme
-    $.ajax({
-        url: '../blog.json',  // JSON dosyasının doğru yolunu kontrol edin
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            let routesContainer = document.createElement('div');
-            routesContainer.id = 'routes-container';
-            
-            let wikiContainer = document.createElement('div');
-            wikiContainer.id = 'wikipedia-container';
-            
-            data.routes.forEach(route => {
-                let routeDiv = document.createElement('div');
-                routeDiv.className = 'route';
-                
-                let destination = document.createElement('h3');
-                destination.textContent = route.city;
-                
-                let description = document.createElement('p');
-                description.textContent = route.description;
-                
-                routeDiv.appendChild(destination);
-                routeDiv.appendChild(description);
-                
-                routesContainer.appendChild(routeDiv);
+    const postContainer = document.getElementById('post-container');
+    const cities = ['Mersin', 'Antalya', 'Mugla']; 
 
-                // Wikipedia API'den bilgi çekme
-                $.ajax({
-                    url: `https://en.wikipedia.org/api/rest_v1/page/summary/${route.city}`,
-                    method: 'GET',
-                    success: function(wikiData) {
-                        let wikiDiv = document.createElement('div');
-                        wikiDiv.className = 'wiki-info';
-                        
-                        let wikiTitle = document.createElement('h3');
-                        wikiTitle.textContent = route.city;
-                        
-                        let wikiContent = document.createElement('p');
-                        wikiContent.textContent = wikiData.extract;
-                        
-                        wikiDiv.appendChild(wikiTitle);
-                        wikiDiv.appendChild(wikiContent);
-                        
-                        wikiContainer.appendChild(wikiDiv);
-                    },
-                    error: function(error) {
-                        console.error(`Error fetching Wikipedia data for ${route.city}:`, error);
-                    }
-                });
+    cities.forEach(city => {
+        const imgSrc = `image/${city.toLowerCase()}.jpg`; 
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post';
+        postDiv.innerHTML = `
+            <img src="${imgSrc}" alt="${city}">
+            <h3><a href="#" class="city-link" data-city="${city}">${city}</a></h3>
+        `;
+        postContainer.appendChild(postDiv);
+    });
+
+    document.querySelectorAll('.city-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const city = this.getAttribute('data-city');
+            fetchWikipediaDescription(city).then(description => {
+                document.getElementById('city-name').innerText = city;
+                document.getElementById('guide-content').innerHTML = description;
+                document.getElementById('city-guide').style.display = 'block';
+                document.getElementById('blog-posts').style.display = 'none';
             });
-            
-            document.querySelector('.blogmain').appendChild(routesContainer);
-            document.querySelector('.blogmain').appendChild(wikiContainer);
-        },
-        error: function(error) {
-            console.error('Error fetching the travel routes:', error);
-        }
+        });
+    });
+
+    document.getElementById('back-button').addEventListener('click', function() {
+        document.getElementById('city-guide').style.display = 'none';
+        document.getElementById('blog-posts').style.display = 'block';
     });
 });
+
+function fetchWikipediaDescription(city) {
+    const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${city}`;
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => data.extract)
+        .catch(error => {
+            console.error('Error fetching Wikipedia data:', error);
+            return 'Description not available';
+        });
+}

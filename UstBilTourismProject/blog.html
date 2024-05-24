@@ -29,7 +29,6 @@
     <main>
         <div class="blogmain">
             <h1>This is the Blog Page</h1>
-            <div id="routes-container"></div>
         </div>    
 
         <section id="blog-posts">
@@ -83,54 +82,8 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('blog.json')
-            .then(response => response.json())
-            .then(data => {
-                const postContainer = document.getElementById('post-container');
-                const routesContainer = document.getElementById('routes-container');
-                
-                data.routes.forEach(route => {
-                    const imgSrc = `image/${route.image}`;
-                    const postDiv = document.createElement('div');
-                    postDiv.className = 'post';
-                    postDiv.innerHTML = `
-                        <img src="${imgSrc}" alt="${route.city}">
-                        <h3><a href="#" class="city-link" data-city="${route.city}" data-description="${route.description.replace(/"/g, '&quot;').replace(/\n/g, '<br>')}">${route.city}</a></h3>
-                        <p>${route.short_description}</p>
-                    `;
-                    postContainer.appendChild(postDiv);
-
-                    const routeDiv = document.createElement('div');
-                    routeDiv.className = 'route';
-                    routeDiv.innerHTML = `
-                        <img src="${imgSrc}" alt="${route.city}">
-                        <h3>${route.city}</h3>
-                        <p>${route.short_description}</p>
-                    `;
-                    routesContainer.appendChild(routeDiv);
-                });
-
-                document.querySelectorAll('.city-link').forEach(link => {
-                    link.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const city = this.getAttribute('data-city');
-                        const description = this.getAttribute('data-description');
-                        document.getElementById('city-name').innerText = city;
-                        document.getElementById('guide-content').innerHTML = description;
-                        document.getElementById('city-guide').style.display = 'block';
-                        document.getElementById('blog-posts').style.display = 'none';
-                    });
-                });
-
-                document.getElementById('back-button').addEventListener('click', function() {
-                    document.getElementById('city-guide').style.display = 'none';
-                    document.getElementById('blog-posts').style.display = 'block';
-                });
-            })
-            .catch(error => console.error('Error:', error));
-        });
+    <script src="js/blog.js">
+      
     </script>
 </body>
 </html>
