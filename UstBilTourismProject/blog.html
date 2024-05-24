@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="index.html">Home Page</a></li>
                 <li><a href="tours.html">Tours</a></li>
-                <li><a href="tourcalendar.html">Tour Calender</a></li>
+                <li><a href="tourcalendar.html">Tour Calendar</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="faq.html">Faq</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
@@ -32,13 +32,11 @@
             <div id="routes-container"></div>
         </div>    
 
-        <!-- New section for blog posts -->
         <section id="blog-posts">
             <h2>Blog Posts</h2>
             <div class="post-container" id="post-container"></div>
         </section>
 
-        <!-- New section for city guides -->
         <section id="city-guide" style="display:none;">
             <h2 id="city-name"></h2>
             <div id="guide-content"></div>
@@ -54,7 +52,7 @@
                     <ul>
                         <li><a href="index.html">Home Page</a></li>
                         <li><a href="tours.html">Tours</a></li>
-                        <li><a href="tourcalendar.html">Tour Calender</a></li>
+                        <li><a href="tourcalendar.html">Tour Calendar</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
@@ -85,7 +83,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript to dynamically load blog posts and city guides -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('blog.json')
@@ -100,7 +97,7 @@
                     postDiv.className = 'post';
                     postDiv.innerHTML = `
                         <img src="${imgSrc}" alt="${route.city}">
-                        <h3><a href="#" class="city-link" data-city="${route.city}" data-description="${route.description}">${route.city}</a></h3>
+                        <h3><a href="#" class="city-link" data-city="${route.city}" data-description="${route.description.replace(/"/g, '&quot;').replace(/\n/g, '<br>')}">${route.city}</a></h3>
                         <p>${route.short_description}</p>
                     `;
                     postContainer.appendChild(postDiv);
@@ -115,20 +112,18 @@
                     routesContainer.appendChild(routeDiv);
                 });
 
-                // Add event listeners to city links
                 document.querySelectorAll('.city-link').forEach(link => {
                     link.addEventListener('click', function(event) {
                         event.preventDefault();
                         const city = this.getAttribute('data-city');
                         const description = this.getAttribute('data-description');
                         document.getElementById('city-name').innerText = city;
-                        document.getElementById('guide-content').innerHTML = description.replace(/\n/g, '<br>');
+                        document.getElementById('guide-content').innerHTML = description;
                         document.getElementById('city-guide').style.display = 'block';
                         document.getElementById('blog-posts').style.display = 'none';
                     });
                 });
 
-                // Back button event listener
                 document.getElementById('back-button').addEventListener('click', function() {
                     document.getElementById('city-guide').style.display = 'none';
                     document.getElementById('blog-posts').style.display = 'block';
