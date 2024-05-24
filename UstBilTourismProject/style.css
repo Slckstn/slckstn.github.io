@@ -5,7 +5,7 @@ main {
     display: block; 
     margin-left: 20px;
     margin-right: 20px;
-  }
+}
   
 h1{
     text-align: center;
@@ -570,4 +570,37 @@ ul{
 
 #policies:hover {
     background-color: #ff6f9d;
+}
+
+/* New styles for tour items */
+.tour-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tour-item img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.tour-details {
+    padding: 20px;
+    flex: 1;
+}
+
+.mersin .tour-details {
+    order: 2;
+}
+
+.antalya .tour-details {
+    order: 1;
+}
+
+.mugla .tour-details {
+    order: 2;
 }

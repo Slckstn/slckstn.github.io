@@ -80,13 +80,33 @@
                 dataType: 'json',
                 success: function(data) {
                     var container = $('#tours-container');
+                    var mersinIndex = 0;
+                    var antalyaIndex = 0;
+                    var muglaIndex = 0;
+                    
                     data.tours.forEach(function(tour) {
-                        container.append(`
-                            <div class="tour">
-                                <h2>${tour.city} - ${tour.month}</h2>
-                                <p>${tour.details}</p>
+                        var imgSrc = "";
+                        if(tour.city.includes("Mersin")) {
+                            imgSrc = `image/mersin${mersinIndex ? '-' + mersinIndex : ''}.jpg`;
+                            mersinIndex++;
+                        } else if(tour.city.includes("Antalya")) {
+                            imgSrc = `image/antalya${antalyaIndex ? '-' + antalyaIndex : ''}.jpg`;
+                            antalyaIndex++;
+                        } else if(tour.city.includes("Muğla")) {
+                            imgSrc = `image/mugla${muglaIndex ? '-' + muglaIndex : ''}.jpg`;
+                            muglaIndex++;
+                        }
+                        
+                        var content = `
+                            <div class="tour-item ${tour.city.toLowerCase().replace(/ /g, '')}">
+                                <img src="${imgSrc}" alt="${tour.city}">
+                                <div class="tour-details">
+                                    <h2>${tour.city} - ${tour.month}</h2>
+                                    <p>${tour.details}</p>
+                                </div>
                             </div>
-                        `);
+                        `;
+                        container.append(content);
                     });
                 },
                 error: function(error) {
