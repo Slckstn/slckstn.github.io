@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Map Örnekleri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.2em;
+            white-space: pre-wrap; /* Satır sonlarına göre kaydırma */
+        }
+        .example {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Map Örnekleri</h1>
+
+    <div class="example">
+        <h2>Map Oluşturma ve Kullanım</h2>
+        <pre id="map-creation"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Map Yöntemleri</h2>
+        <pre id="map-methods"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Map forEach Kullanımı</h2>
+        <pre id="map-foreach"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Map keys() ve values() Kullanımı</h2>
+        <pre id="map-keys-values"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Map entries() Kullanımı</h2>
+        <pre id="map-entries"></pre>
+    </div>
+
+    <script>
+        // Map Oluşturma ve Kullanım
+        const fruits = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+        document.getElementById("map-creation").textContent = 
+        `const fruits = new Map([\n` +
+        `  ["apples", 500],\n` +
+        `  ["bananas", 300],\n` +
+        `  ["oranges", 200]\n` +
+        `]);\n\n` +
+        `fruits.get("apples"); // ${fruits.get("apples")}`;
+
+        // Map Yöntemleri
+        const fruitsMethods = new Map();
+        fruitsMethods.set("apples", 500);
+        fruitsMethods.set("bananas", 300);
+        fruitsMethods.set("oranges", 200);
+        document.getElementById("map-methods").textContent = 
+        `const fruitsMethods = new Map();\n` +
+        `fruitsMethods.set("apples", 500);\n` +
+        `fruitsMethods.set("bananas", 300);\n` +
+        `fruitsMethods.set("oranges", 200);\n\n` +
+        `fruitsMethods.has("bananas"); // ${fruitsMethods.has("bananas")}\n` +
+        `fruitsMethods.delete("bananas");\n` +
+        `fruitsMethods.has("bananas"); // ${fruitsMethods.has("bananas")}`;
+
+        // Map forEach Kullanımı
+        let text = "";
+        fruits.forEach(function(value, key) {
+            text += key + ' = ' + value + '\n';
+        });
+        document.getElementById("map-foreach").textContent = 
+        `let text = "";\n` +
+        `fruits.forEach(function(value, key) {\n` +
+        `  text += key + ' = ' + value + '\\n';\n` +
+        `});\n\n` +
+        `console.log(text);\n` +
+        `${text}`;
+
+        // Map keys() ve values() Kullanımı
+        let keys = "";
+        for (const key of fruits.keys()) {
+            keys += key + "\n";
+        }
+        let values = "";
+        for (const value of fruits.values()) {
+            values += value + "\n";
+        }
+        document.getElementById("map-keys-values").textContent = 
+        `let keys = "";\n` +
+        `for (const key of fruits.keys()) {\n` +
+        `  keys += key + "\\n";\n` +
+        `}\n` +
+        `console.log(keys);\n` +
+        `${keys}\n\n` +
+        `let values = "";\n` +
+        `for (const value of fruits.values()) {\n` +
+        `  values += value + "\\n";\n` +
+        `}\n` +
+        `console.log(values);\n` +
+        `${values}`;
+
+        // Map entries() Kullanımı
+        let entries = "";
+        for (const entry of fruits.entries()) {
+            entries += entry + "\n";
+        }
+        document.getElementById("map-entries").textContent = 
+        `let entries = "";\n` +
+        `for (const entry of fruits.entries()) {\n` +
+        `  entries += entry + "\\n";\n` +
+        `}\n` +
+        `console.log(entries);\n` +
+        `${entries}`;
+    </script>
+
+</body>
+</html>

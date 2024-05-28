@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Sınıf ve Nesne Özellikleri Örnekleri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.2em;
+            white-space: pre-wrap; /* Satır sonlarına göre kaydırma */
+        }
+        .example {
+            margin-bottom: 30px;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Sınıf ve Nesne Özellikleri Örnekleri</h1>
+
+    <div class="example">
+        <h2>Sınıf Tanımlama</h2>
+        <pre id="class-definition"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Sınıf Yöntemleri</h2>
+        <pre id="class-methods"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Nesneleri Görüntüleme</h2>
+        <pre id="display-objects"></pre>
+    </div>
+
+    <div class="example">
+        <h2>Nesneleri JSON'a Dönüştürme</h2>
+        <pre id="json-objects"></pre>
+    </div>
+
+    <script>
+        // Sınıf Tanımlama
+        class Car {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+        }
+
+        const myCar = new Car("Ford", 2014);
+        document.getElementById("class-definition").textContent = 
+        `class Car {\n` +
+        `  constructor(name, year) {\n` +
+        `    this.name = name;\n` +
+        `    this.year = year;\n` +
+        `  }\n` +
+        `}\n\n` +
+        `const myCar = new Car("Ford", 2014);\n` +
+        `myCar.name; // ${myCar.name}\n` +
+        `myCar.year; // ${myCar.year}`;
+
+        // Sınıf Yöntemleri
+        class CarWithMethods {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+
+            age() {
+                let date = new Date();
+                return date.getFullYear() - this.year;
+            }
+
+            displayInfo() {
+                return `${this.name} is ${this.age()} years old.`;
+            }
+        }
+
+        const myCarWithMethods = new CarWithMethods("Toyota", 2010);
+        document.getElementById("class-methods").textContent = 
+        `class CarWithMethods {\n` +
+        `  constructor(name, year) {\n` +
+        `    this.name = name;\n` +
+        `    this.year = year;\n` +
+        `  }\n\n` +
+        `  age() {\n` +
+        `    let date = new Date();\n` +
+        `    return date.getFullYear() - this.year;\n` +
+        `  }\n\n` +
+        `  displayInfo() {\n` +
+        `    return \`\${this.name} is \${this.age()} years old.\`;\n` +
+        `  }\n` +
+        `}\n\n` +
+        `const myCarWithMethods = new CarWithMethods("Toyota", 2010);\n` +
+        `myCarWithMethods.displayInfo(); // ${myCarWithMethods.displayInfo()}`;
+
+        // Nesneleri Görüntüleme
+        const person = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        };
+        document.getElementById("display-objects").textContent = 
+        `const person = {\n` +
+        `  name: "John",\n` +
+        `  age: 30,\n` +
+        `  city: "New York"\n` +
+        `};\n\n` +
+        `document.getElementById("demo").innerHTML = person.name + ", " + person.age + ", " + person.city; // John, 30, New York`;
+
+        // Nesneleri JSON'a Dönüştürme
+        const jsonString = JSON.stringify(person);
+        document.getElementById("json-objects").textContent = 
+        `const person = {\n` +
+        `  name: "John",\n` +
+        `  age: 30,\n` +
+        `  city: "New York"\n` +
+        `};\n\n` +
+        `const jsonString = JSON.stringify(person);\n` +
+        `jsonString; // ${jsonString}`;
+    </script>
+
+</body>
+</html>
