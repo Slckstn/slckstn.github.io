@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript CONST Örnekleri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        pre {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.1em;
+            white-space: pre-wrap; /* Satır sonlarına göre kaydırma */
+        }
+        .example {
+            margin-bottom: 30px;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript CONST Örnekleri</h1>
+
+    <div class="example">
+        <h2>CONST ile Nesne Tanımlama</h2>
+        <pre id="const-object"></pre>
+    </div>
+
+    <div class="example">
+        <h2>CONST ile Dizi Tanımlama</h2>
+        <pre id="const-array"></pre>
+    </div>
+
+    <div class="example">
+        <h2>CONST ile Blok Kapsamı</h2>
+        <pre id="const-block"></pre>
+    </div>
+
+    <script>
+        // CONST ile Nesne Tanımlama
+        try {
+            const car = {type: "Fiat", model: "500", color: "white"};
+            car.color = "red"; // Geçerli, nesne içindeki özelliği değiştirebiliriz
+            document.getElementById("const-object").innerHTML = 
+                `<span class="valid">Geçerli:</span> const car = {type: "Fiat", model: "500", color: "white"};\n` +
+                `car.color = "red"; // Geçerli\n`;
+
+            // car = {type: "BMW", model: "X5", color: "blue"}; // Geçersiz, yeniden atama yapılamaz
+            try {
+                car = {type: "BMW", model: "X5", color: "blue"}; 
+            } catch (error) {
+                document.getElementById("const-object").innerHTML += 
+                `<span class="invalid">Geçersiz:</span> car = {type: "BMW", model: "X5", color: "blue"}; // Geçersiz, yeniden atama yapılamaz\n`;
+            }
+        } catch (error) {
+            document.getElementById("const-object").textContent = "Hata: " + error.message;
+        }
+
+        // CONST ile Dizi Tanımlama
+        try {
+            const cars = ["Saab", "Volvo", "BMW"];
+            cars[0] = "Toyota"; // Geçerli, dizinin içeriği değiştirilebilir
+            cars.push("Audi");  // Geçerli, dizinin içeriği değiştirilebilir
+            document.getElementById("const-array").innerHTML = 
+                `<span class="valid">Geçerli:</span> const cars = ["Saab", "Volvo", "BMW"];\n` +
+                `cars[0] = "Toyota"; // Geçerli\n` +
+                `cars.push("Audi"); // Geçerli\n`;
+
+            // cars = ["Toyota", "Volvo", "Audi"]; // Geçersiz, yeniden atama yapılamaz
+            try {
+                cars = ["Toyota", "Volvo", "Audi"]; 
+            } catch (error) {
+                document.getElementById("const-array").innerHTML += 
+                `<span class="invalid">Geçersiz:</span> cars = ["Toyota", "Volvo", "Audi"]; // Geçersiz, yeniden atama yapılamaz\n`;
+            }
+        } catch (error) {
+            document.getElementById("const-array").textContent = "Hata: " + error.message;
+        }
+
+        // CONST ile Blok Kapsamı
+        try {
+            const x = 2; // Geçerli
+
+            {
+                const x = 3; // Geçerli, farklı blokta tanımlandığı için
+                document.getElementById("const-block").innerHTML = 
+                `<span class="valid">Geçerli:</span> Blok 1 içinde: const x = 3;\n` +
+                `Blok dışında: const x = ${x}; // Geçerli\n`;
+            }
+
+            {
+                const x = 4; // Geçerli, farklı blokta tanımlandığı için
+                document.getElementById("const-block").innerHTML += 
+                `<span class="valid">Geçerli:</span> Blok 2 içinde: const x = 4;\n` +
+                `Blok dışında: const x = ${x}; // Geçerli\n`;
+            }
+
+        } catch (error) {
+            document.getElementById("const-block").textContent = "Hata: " + error.message;
+        }
+
+    </script>
+
+</body>
+</html>

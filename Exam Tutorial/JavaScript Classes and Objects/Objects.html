@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String Methods Demo</title>
+</head>
+<body>
+    <h1>JavaScript String Object Methods Demo</h1>
+    <p>Enter a string and see the results of various string methods:</p>
+    <input type="text" id="inputString" value="I love JavaScript">
+    <br><br>
+    <button onclick="showResults()">Show Results</button>
+    <h2>Results:</h2>
+    <p><strong>Original String:</strong> <span id="originalString"></span></p>
+    <p><strong>Length:</strong> <span id="lengthResult"></span></p>
+    <p><strong>Slice (2, 6):</strong> <span id="sliceResult"></span></p>
+    <p><strong>Substring (2, 6):</strong> <span id="substringResult"></span></p>
+    <p><strong>Substr (2, 4):</strong> <span id="substrResult"></span></p>
+    <p><strong>Replace 'JavaScript' with 'JS':</strong> <span id="replaceResult"></span></p>
+    <p><strong>To Uppercase:</strong> <span id="toUpperCaseResult"></span></p>
+    
+    <script>
+        function showResults() {
+            // Get the input string
+            let x = document.getElementById("inputString").value;
+            
+            // Display the original string
+            document.getElementById("originalString").textContent = x;
+            
+            // Display the length of the string
+            let lengthResult = x.length;
+            document.getElementById("lengthResult").textContent = lengthResult;
+            
+            // Apply and display the slice method
+            let sliceResult = x.slice(2, 6);
+            document.getElementById("sliceResult").textContent = sliceResult;
+            
+            // Apply and display the substring method
+            let substringResult = x.substring(2, 6);
+            document.getElementById("substringResult").textContent = substringResult;
+            
+            // Apply and display the substr method
+            let substrResult = x.substr(2, 4);
+            document.getElementById("substrResult").textContent = substrResult;
+            
+            // Apply and display the replace method
+            let replaceResult = x.replace("JavaScript", "JS");
+            document.getElementById("replaceResult").textContent = replaceResult;
+            
+            // Apply and display the toUpperCase method
+            let toUpperCaseResult = x.toUpperCase();
+            document.getElementById("toUpperCaseResult").textContent = toUpperCaseResult;
+        }
+    </script>
+</body>
+</html>
